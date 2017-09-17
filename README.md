@@ -99,7 +99,13 @@ If you haven't written a markdown file yet, [click here for a rundown](https://g
   
 ![Image of terminal](images/screenshot-8.png)
 
+![Image of terminal](images/screenshot-9.png)
+
   * If a manager selects `Add New Product`, it should allow the manager to add a completely new product to the store.
+  
+![Image of terminal](images/screenshot-10.png)
+
+![Image of terminal](images/screenshot-11.png)
 
 - - -
 
@@ -135,6 +141,16 @@ If you haven't written a markdown file yet, [click here for a rundown](https://g
 | ------------- | --------------- | --------------- | ------------- | ------------ |
 | 01            | Electronics     | 10000           | 20000         | 10000        |
 | 02            | Clothing        | 60000           | 100000        | 40000        |
+
+![Image of terminal](images/screenshot-12.png)
+
+* The new department, home decor, has been added to the database.
+
+![Image of terminal](images/screenshot-13.png)
+
+* The new department is also reflected in the table that is logged to the console.
+
+![Image of terminal](images/screenshot-14.png)
 
 6. The `total_profit` column should be calculated on the fly using the difference between `over_head_costs` and `product_sales`. `total_profit` should not be stored in any database. You should use a custom alias.
 
