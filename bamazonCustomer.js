@@ -4,11 +4,7 @@ var inquirer = require("inquirer");
 var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
-
-  // Your username
   user: "root",
-
-  // Your password
   password: "",
   database: "bamazon"
 });
@@ -43,30 +39,27 @@ function afterConnection() {
       }
       if (chosenItem.stock_quantity >= parseInt(answer.quantity)) {
         var quantLeft = chosenItem.stock_quantity - parseInt(answer.quantity);
-        var totalCost = parseInt(answer.quantity) * chosenItem.price
+        var totalCost = parseInt(answer.quantity) * chosenItem.price;
+        var sales = totalCost + chosenItem.product_sales;
         connection.query(
           "UPDATE products SET ? WHERE ?", [
             {
-              stock_quantity: quantLeft
-              },
+              stock_quantity: quantLeft,
+              product_sales: sales
+            },
             {
               item_id: chosenItem.item_id
-              }
+            }
             ],
           function (err) {
             if (err) throw err;
             console.log("Order successful! Your total cost is $" + totalCost);
-            //              start();
           }
         );
       } else {
-        // bid wasn't high enough, so apologize and start over
         console.log("Insufficient Quantity!");
-        //          start();
       }
       connection.end();
     });
-
   });
-
 }
